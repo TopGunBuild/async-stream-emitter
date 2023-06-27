@@ -249,7 +249,6 @@ describe('StreamDemux', () =>
         {
             await wait(10);
             demux.close('hello');
-            console.log('close');
         })();
 
         let substream       = demux.stream('hello');
