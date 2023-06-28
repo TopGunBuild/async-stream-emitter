@@ -8,10 +8,8 @@ describe('StreamDemux', () =>
     {
         const demux = new StreamDemux();
 
-        (async () =>
-        {
-            for (let i = 0; i < 10; i++)
-            {
+        (async () => {
+            for (let i = 0; i < 10; i++) {
                 await wait(10);
                 demux.write('hello', 'world' + i);
                 demux.write('abc', 'def' + i);
@@ -21,22 +19,18 @@ describe('StreamDemux', () =>
         })();
 
         let receivedHelloPackets = [];
-        let receivedAbcPackets   = [];
+        let receivedAbcPackets = [];
 
         await Promise.all([
-            (async () =>
-            {
+            (async () => {
                 let substream = demux.stream('hello');
-                for await (let packet of substream)
-                {
+                for await (let packet of substream) {
                     receivedHelloPackets.push(packet);
                 }
             })(),
-            (async () =>
-            {
+            (async () => {
                 let substream = demux.stream('abc');
-                for await (let packet of substream)
-                {
+                for await (let packet of substream) {
                     receivedAbcPackets.push(packet);
                 }
             })()
@@ -117,7 +111,7 @@ describe('StreamDemux', () =>
         })();
 
         let receivedPackets = [];
-        let asyncIterator   = demux.stream('hello').createAsyncIterator();
+        let asyncIterator   = demux.stream('hello').createConsumer();
 
         while (true)
         {

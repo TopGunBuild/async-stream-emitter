@@ -73,7 +73,7 @@ export class Consumer<T>
             clearTimeout(this._timeoutId);
             delete this._timeoutId;
         }
-        this.applyBackpressure();
+        this.applyBackpressure(packet);
         if (this._resolve)
         {
             this._resolve();
@@ -91,7 +91,7 @@ export class Consumer<T>
         if (this._isIterating)
         {
             this._killPacket = { value, done: true };
-            this.applyBackpressure();
+            this.applyBackpressure(this._killPacket);
         }
         else
         {
@@ -137,7 +137,7 @@ export class Consumer<T>
             }
 
             this.currentNode = this.currentNode.next;
-            this.releaseBackpressure();
+            this.releaseBackpressure(this.currentNode.data);
 
             if (this.currentNode.consumerId && this.currentNode.consumerId !== this.id)
             {
