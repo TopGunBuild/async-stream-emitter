@@ -1,9 +1,11 @@
 import { ConsumableStream, ConsumableStreamConsumer } from '../consumable-stream/consumable-stream';
+import { ConsumerStats } from '../writable-consumable-stream';
+import { StreamDemux } from './stream-demux';
 
 export class DemuxedConsumableStream<T> extends ConsumableStream<T>
 {
     name: string;
-    private _streamDemux: any;
+    private _streamDemux: StreamDemux<any>;
 
     /**
      * Constructor
@@ -20,12 +22,12 @@ export class DemuxedConsumableStream<T> extends ConsumableStream<T>
         return this._streamDemux.createConsumer(this.name, timeout);
     }
 
-    hasConsumer(consumerId)
+    hasConsumer(consumerId: number): boolean
     {
         return this._streamDemux.hasConsumer(this.name, consumerId);
     }
 
-    getConsumerStats(consumerId)
+    getConsumerStats(consumerId: number): ConsumerStats
     {
         if (!this.hasConsumer(consumerId))
         {
@@ -34,17 +36,17 @@ export class DemuxedConsumableStream<T> extends ConsumableStream<T>
         return this._streamDemux.getConsumerStats(consumerId);
     }
 
-    getConsumerStatsList()
+    getConsumerStatsList(): ConsumerStats[]
     {
         return this._streamDemux.getConsumerStatsList(this.name);
     }
 
-    getBackpressure()
+    getBackpressure(): number
     {
         return this._streamDemux.getBackpressure(this.name);
     }
 
-    getConsumerBackpressure(consumerId)
+    getConsumerBackpressure(consumerId: number): number
     {
         if (!this.hasConsumer(consumerId))
         {
