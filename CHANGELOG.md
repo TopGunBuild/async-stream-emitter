@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/TopGunBuild/topgun-async-stream-emitter/compare/v1.1.0...v1.1.1) (2023-06-30)
+
+
+### Bug Fixes
+
+* update typings ([33dfbd2](https://github.com/TopGunBuild/topgun-async-stream-emitter/commit/33dfbd20c8b51cec6185a38f6a269123aa743765))
+
 # [1.1.0](https://github.com/TopGunBuild/topgun-async-stream-emitter/compare/v1.0.1...v1.1.0) (2023-06-28)
 
 
