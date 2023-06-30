@@ -1,6 +1,5 @@
-import { StreamDemux } from './stream-demux';
+import { DemuxedConsumableStream, StreamDemux } from './stream-demux';
 import { ConsumerStats } from './writable-consumable-stream/consumer-stats';
-import { ConsumableStream } from './consumable-stream/consumable-stream';
 
 export class AsyncStreamEmitter<T>
 {
@@ -16,7 +15,7 @@ export class AsyncStreamEmitter<T>
         this._listenerDemux.write(eventName, data);
     }
 
-    listener(eventName: string): ConsumableStream<T>
+    listener(eventName: string): DemuxedConsumableStream<T>
     {
         return this._listenerDemux.stream(eventName);
     }
