@@ -1,15 +1,12 @@
-<h1 align="center" style="border-bottom: none;">🔥 topgun-async-stream-emitter</h1>
+<h1 align="center" style="border-bottom: none;">🔥 @topgunbuild/async-stream-emitter</h1>
 <h3 align="center">EventEmitter using async iterable streams and asynchronous iterable stream demultiplexer for <a href="https://github.com/TopGunBuild/topgun">TopGun</a>. Improves control flow whilst helping to avoid memory leaks.</h3>
 
 <p align="center">
-  <a href="https://github.com/semantic-release/semantic-release">
-      <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+  <a href="https://npm.im/@topgunbuild/async-stream-emitter">
+    <img alt="npm" src="https://badgen.net/npm/v/@topgunbuild/async-stream-emitter">
   </a>
-  <a href="https://npm.im/topgun-async-stream-emitter">
-    <img alt="npm" src="https://badgen.net/npm/v/topgun-async-stream-emitter">
-  </a>
-  <a href="https://bundlephobia.com/result?p=topgun-async-stream-emitter">
-    <img alt="bundlephobia" src="https://img.shields.io/bundlephobia/minzip/topgun-async-stream-emitter.svg">
+  <a href="https://bundlephobia.com/result?p=@topgunbuild/async-stream-emitter">
+    <img alt="bundlephobia" src="https://img.shields.io/bundlephobia/minzip/@topgunbuild/async-stream-emitter.svg">
   </a>
   <a href="https://opensource.org/licenses/MIT">
       <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg">
@@ -18,7 +15,9 @@
 
 ## Install
 
-`npm install topgun-async-stream-emitter`
+```bash
+npm install @topgunbuild/async-stream-emitter
+```
 
 ## Usage AsyncStreamEmitter
 

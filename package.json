@@ -1,6 +1,6 @@
 {
-    "name": "topgun-async-stream-emitter",
-    "version": "1.1.1",
+    "name": "@topgunbuild/async-stream-emitter",
+    "version": "0.0.0",
     "description": "EventEmitter using async iterable streams",
     "publishConfig": {
         "access": "public"
@@ -25,14 +25,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/TopGunBuild/topgun-async-stream-emitter.git"
+        "url": "git+https://github.com/TopGunBuild/async-stream-emitter.git"
     },
-    "author": "Ivan Kalashnik",
+    "author": "ivan@topgun.build",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/TopGunBuild/topgun-async-stream-emitter/issues"
+        "url": "https://github.com/TopGunBuild/async-stream-emitter/issues"
     },
-    "homepage": "https://github.com/TopGunBuild/topgun-async-stream-emitter#readme",
+    "homepage": "https://github.com/TopGunBuild/async-stream-emitter#readme",
     "devDependencies": {
         "@semantic-release/changelog": "^6.0.3",
         "@semantic-release/commit-analyzer": "^9.0.2",
