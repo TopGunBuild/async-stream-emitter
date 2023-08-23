@@ -1,6 +1,6 @@
 {
     "name": "@topgunbuild/async-stream-emitter",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "EventEmitter using async iterable streams",
     "publishConfig": {
         "access": "public"
