@@ -53,7 +53,7 @@ export class WritableConsumableStream<T> extends ConsumableStream<T>
 
     kill(value?: T): void
     {
-        for (let consumerId of this._consumers.keys())
+        for (const consumerId of this._consumers.keys())
         {
             this.killConsumer(consumerId, value);
         }
@@ -61,7 +61,7 @@ export class WritableConsumableStream<T> extends ConsumableStream<T>
 
     killConsumer(consumerId: number, value?: T): void
     {
-        let consumer = this._consumers.get(consumerId);
+        const consumer = this._consumers.get(consumerId);
         if (!consumer)
         {
             return;
@@ -72,9 +72,9 @@ export class WritableConsumableStream<T> extends ConsumableStream<T>
     getBackpressure(): number
     {
         let maxBackpressure = 0;
-        for (let consumer of this._consumers.values())
+        for (const consumer of this._consumers.values())
         {
-            let backpressure = consumer.getBackpressure();
+            const backpressure = consumer.getBackpressure();
             if (backpressure > maxBackpressure)
             {
                 maxBackpressure = backpressure;
@@ -85,7 +85,7 @@ export class WritableConsumableStream<T> extends ConsumableStream<T>
 
     getConsumerBackpressure(consumerId: number): number
     {
-        let consumer = this._consumers.get(consumerId);
+        const consumer = this._consumers.get(consumerId);
         if (consumer)
         {
             return consumer.getBackpressure();
@@ -114,7 +114,7 @@ export class WritableConsumableStream<T> extends ConsumableStream<T>
 
     getConsumerStats(consumerId: number): ConsumerStats
     {
-        let consumer = this._consumers.get(consumerId);
+        const consumer = this._consumers.get(consumerId);
         if (consumer)
         {
             return consumer.getStats();
@@ -124,8 +124,8 @@ export class WritableConsumableStream<T> extends ConsumableStream<T>
 
     getConsumerStatsList(): ConsumerStats[]
     {
-        let consumerStats = [];
-        for (let consumer of this._consumers.values())
+        const consumerStats = [];
+        for (const consumer of this._consumers.values())
         {
             consumerStats.push(consumer.getStats());
         }
@@ -153,7 +153,7 @@ export class WritableConsumableStream<T> extends ConsumableStream<T>
 
     private _write(value: T, done: boolean, consumerId?: number)
     {
-        let dataNode: any = {
+        const dataNode: any = {
             data: { value, done },
             next: null
         };
@@ -164,7 +164,7 @@ export class WritableConsumableStream<T> extends ConsumableStream<T>
         this._tailNode.next = dataNode;
         this._tailNode      = dataNode;
 
-        for (let consumer of this._consumers.values())
+        for (const consumer of this._consumers.values())
         {
             consumer.write(dataNode.data);
         }

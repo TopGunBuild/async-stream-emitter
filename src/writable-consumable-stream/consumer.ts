@@ -35,7 +35,7 @@ export class Consumer<T>
 
     getStats(): ConsumerStats
     {
-        let stats: ConsumerStats = {
+        const stats: ConsumerStats = {
             id          : this.id,
             backpressure: this._backpressure
         };
@@ -130,7 +130,7 @@ export class Consumer<T>
                 this._isIterating = false;
                 this.stream.removeConsumer(this.id);
                 this.resetBackpressure();
-                let killPacket = this._killPacket;
+                const killPacket = this._killPacket;
                 delete this._killPacket;
 
                 return killPacket;
@@ -177,10 +177,10 @@ export class Consumer<T>
             {
                 // Create the error object in the outer scope in order
                 // to get the full stack trace.
-                let error = new Error('Stream consumer iteration timed out');
+                const error = new Error('Stream consumer iteration timed out');
                 (async () =>
                 {
-                    let delay = wait(timeout);
+                    const delay = wait(timeout);
                     timeoutId = delay.timeoutId;
                     await delay.promise;
                     error.name = 'TimeoutError';
@@ -196,7 +196,7 @@ export class Consumer<T>
 function wait(timeout)
 {
     let timeoutId;
-    let promise = new Promise((resolve) =>
+    const promise = new Promise((resolve) =>
     {
         timeoutId = setTimeout(resolve, timeout);
     });
